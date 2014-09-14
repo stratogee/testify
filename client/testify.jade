@@ -1,0 +1,57 @@
+template(name="testify")
+  .testifyLink &#x2606; Testify
+  .container-fluid.testify(class="{{testifyClass}}")
+    #mocha
+    .row
+      .col-sm-6
+        h3 Scenarios
+          a.runAll.btn.btn-xs.btn-success
+            i.fa.fa-play
+          a.clearAll.btn.btn-xs.btn-danger reset
+        ul
+          each scenarios
+            +testifyScenario
+      .col-sm-6
+        h3 Tests
+        ul
+          each testCategories
+            +testifyTestCategory
+
+template(name="testifyTestCategory")
+  li= name
+  ul
+    each tests
+      +testifyTest(test=. category=..)
+
+template(name="testifyTest")
+  li
+    .btn-group
+      a.run.btn.btn-xs.btn-default
+        i.fa.fa-play
+    a.view
+      .caret
+      = name
+    pre(style="display: none;")= code
+
+
+template(name="testifyScenario")
+  li
+    .btn-group
+      a.runScenario.btn.btn-xs.btn-default
+        i.fa.fa-play
+      a.check.btn.btn-xs.btn-default
+        i.fa.fa-check
+    a.view
+      .caret
+      = name
+  ul(style="display: none;")
+    each tests
+      +testifyScenarioTest(test=. scenario=..)
+
+template(name="testifyScenarioTest")
+  li
+    input(type='checkbox' checked=isChecked)
+    a.runIndividual
+      small= category
+      | : 
+      = name

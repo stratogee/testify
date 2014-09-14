@@ -1,0 +1,47 @@
+.testify
+  position fixed
+  overflow auto
+  top 20px
+  bottom 20px
+  left 0px
+  right 0px
+  padding 0
+  margin 0
+  background rgba(255, 255, 255, 0.66)
+  z-index 10
+  border 1px solid #fff
+  ul
+    list-style none
+    padding 0
+    ul
+      padding 4px 0px 4px 10px
+
+.testify.visible
+  display block
+  position fixed
+  overflow auto
+
+.testify.hidden
+  display none
+  visibility hidden
+  width 0
+  height 0
+
+.wrapper.withTestify
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  filter: blur(10px);
+
+.testifyLink
+  position fixed
+  display block
+  bottom 7px
+  right 9px
+  z-index 11
+  background rgba(255, 255, 255, 0.7)
+  cursor pointer
+  &:hover
+    color #000
+
+#mocha
+  z-index 11
